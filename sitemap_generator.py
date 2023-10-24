@@ -4,7 +4,7 @@ from bs4 import BeautifulSoup
 from xml.dom.minidom import Document
 from datetime import datetime
 from urllib.parse import urlparse, urljoin
-from fake_useragent import UserAgent  # Import UserAgent from fake-useragent library
+from fake_useragent import UserAgent  
 
 # Initialize a UserAgent object to generate random User-Agent headers
 user_agent = UserAgent()
@@ -44,7 +44,6 @@ def create_custom_xml_sitemap(domain, folder="sitemaps"):
     urlset.setAttribute("xsi:schemaLocation", "http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd")
     doc.appendChild(urlset)
 
-    # Add the domain URL with priority 0.5
     domain_url_element = doc.createElement("url")
     domain_loc_element = doc.createElement("loc")
     domain_loc_element.appendChild(doc.createTextNode(full_url))
